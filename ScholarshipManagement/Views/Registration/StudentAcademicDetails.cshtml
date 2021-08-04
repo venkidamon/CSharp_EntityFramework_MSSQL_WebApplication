@@ -1,0 +1,201 @@
+﻿@model ProjectAlpha.Models.StudentAcademicDetail
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Academic Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="~/Content/lib/font-awesome/css/all.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="~/Content/Image/Icons/form.ico" />
+    <link href="~/Content/lib/font-awesome/css/animations.css" rel="stylesheet" />
+
+    <link href="~/Content/StyleSheet/StudentAcademicDetail/AcademicDetail.css" rel="stylesheet" />
+
+</head>
+<body>
+ @Html.Partial("~/Views/PartialViews/_INavBar.cshtml");
+
+    <div class="container" style="margin-top:60px">
+        @using (Html.BeginForm("StudentAcademicDetails", "Registration", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h2 style="font-family:cursive;color:#4285F4">Academic Details</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <section>
+                    <h2 style="font-family:Calibri; font-weight:bold">SSLC DETAILS</h2>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SSLCSchoolName, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.SSLCSchoolName, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "Enter Your School Name." } })
+                            @Html.ValidationMessageFor(model => model.SSLCSchoolName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SSLCBoard, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.DropDownListFor(a => a.SSLCBoard, new List<SelectListItem> {
+                           new SelectListItem{Text="State",Value="State"},
+                           new SelectListItem{Text="CBSE",Value="CBSE"},
+                           new SelectListItem{Text="ICSE",Value="ICSE" }}, "Select Board", new { @class = "btn btn-primary dropdown-toggle" })
+                            @Html.ValidationMessageFor(a => a.SSLCBoard, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SSLCYearOfPassing, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.SSLCYearOfPassing, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "YYYY" } })
+                            @Html.ValidationMessageFor(model => model.SSLCYearOfPassing, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SSLCPercentage, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.SSLCPercentage, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "Enter Only Number" } })
+                            @Html.ValidationMessageFor(model => model.SSLCPercentage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+                </section>
+                <section>
+                    <h2 style="font-family:Calibri; font-weight:bold">
+                        HSC DETAILS
+                    </h2>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HSCSchoolName, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.HSCSchoolName, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "Enter Your School Name." } })
+                            @Html.ValidationMessageFor(model => model.HSCSchoolName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HSCBoard, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.DropDownListFor(a => a.HSCBoard, new List<SelectListItem> {
+                  new SelectListItem{Text="State",Value="State"},
+                  new SelectListItem{Text="CBSE",Value="CBSE"},
+                  new SelectListItem{Text="ICSE",Value="ICSE" }}, "Select Board", new { @class = "btn btn-primary dropdown-toggle" })
+                            @Html.ValidationMessageFor(a => a.HSCBoard, "", new { @class = "text-danger " })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HSCSpecialization, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.DropDownListFor(a => a.HSCSpecialization, new List<SelectListItem> {
+                new SelectListItem{Text="Science",Value="Science"},
+                new SelectListItem{Text="Commerce",Value="Commmerce"},
+                new SelectListItem{Text="Math-Bio",Value="MathBio" }}, "Select Specialization", new { @class = "btn btn-primary dropdown-toggle" })
+                            @Html.ValidationMessageFor(a => a.HSCSpecialization, "", new { @class = "text-danger " })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HSCYearOfPassing, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.HSCYearOfPassing, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "YYYY" } })
+                            @Html.ValidationMessageFor(model => model.HSCYearOfPassing, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HSCPercentage, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.HSCPercentage, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "Enter Only Number" } })
+                            @Html.ValidationMessageFor(model => model.HSCPercentage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+                </section>
+                <secton>
+
+                    <h2 style="font-family:Calibri; font-weight:bold">UG DETAILS</h2>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UGInstitutionName, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.UGInstitutionName, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "Enter Your Institution Name" } })
+                            @Html.ValidationMessageFor(model => model.UGInstitutionName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UGUniversity, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.UGUniversity, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "Enter Your University Name" } })
+                            @Html.ValidationMessageFor(model => model.UGUniversity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UGSpecialization, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.UGSpecialization, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "Enter Your Specialization" } })
+                            @Html.ValidationMessageFor(model => model.UGSpecialization, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UGModeOfEducation, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.DropDownListFor(a => a.UGModeOfEducation, new List<SelectListItem>
+                            {
+                            new SelectListItem{Text="FullTime",Value="FullTime"},
+                            new SelectListItem{Text="PartTime",Value="PartTime"}}, "Select Mode", new { @class = "btn btn-primary dropdown-toggle" })
+                            @Html.ValidationMessageFor(a => a.UGModeOfEducation, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UGYearOfPassing, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.UGYearOfPassing, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "YYYY" } })
+                            @Html.ValidationMessageFor(model => model.UGYearOfPassing, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UGPercentage, htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-offset-5">
+                            @Html.EditorFor(model => model.UGPercentage, new { htmlAttributes = new { autocomplete = "off", @class = "form-control", placeholder = "Enter Your CGPA/Percentage" } })
+                            @Html.ValidationMessageFor(model => model.UGPercentage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+                </secton>
+
+
+
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-offset-5">
+                        <button submit class="btn btn-primary pull-left" name="previous" formaction="StudentPersonalDetails" formmethod="get">Previous</button>
+                        <button submit class="btn btn-success pull-right" name="next" formaction="StudentAcademicDetails" formmethod="post">Next</button>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</body>
+</html>
+

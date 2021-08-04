@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<ProjectAlpha.Models.ViewModelUserStatus>
+@{
+    ViewBag.Title = "status";
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Application Applied</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="~/Content/Image/Icons/admin.png" />
+
+    <link href="~/Content/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/Content/lib/font-awesome/css/animations.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="~/Content/StyleSheet/UserStatus/UserStatus.css" rel="stylesheet" />
+</head>
+
+<body>
+    @Html.Partial("~/Views/PartialViews/_INavBar.cshtml");
+
+    <div class="movement">
+        <table id="styletable" width='480px' cellpadding='250' cellspacing='3' align="center">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Approval status
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailID)
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.ApprovalStatus, "Info", "Status", new { id = item.UserID, status = item.ApprovalStatus }, null)
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+
+    </div>
+</body>
+
+</html>

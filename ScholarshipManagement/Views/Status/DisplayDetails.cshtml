@@ -1,0 +1,137 @@
+﻿@model ProjectAlpha.Models.ViewModelDisplayDetail
+
+
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Application</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="~/image/icons/admin.png" />
+    <link href="~/Content/StyleSheet/DisplayDetail/Display.css" rel="stylesheet" />
+   
+</head>
+<body>
+    @Html.Partial("~/Views/PartialViews/_INavBar.cshtml");
+
+    <div class="container" style="margin-top:60px">
+        <div class="jumbotron">
+            <div class="text-center">
+                <img src=@Url.Content(Model.PersonalDetail.ImagePath) class="profile" />
+            </div>
+        </div>
+        <div class="jumbotron">
+            <h3 style="font-family:cursive">Details</h3>
+            <table align="center" width="100%">
+
+
+
+                <tbody>
+                    <tr>
+                        <th colspan="2"></th>
+                    </tr>
+                    <tr class="highlight">
+                        <td>Name</td>
+                        <td>@Model.PersonalDetail.FullName</td>
+                    </tr>
+                    <tr>
+                        <td>Date Of Birth</td>
+                        <td>@Model.PersonalDetail.DateOfBirth</td>
+                    </tr>
+                    <tr>
+                        <td>Age</td>
+                        <td>@Model.PersonalDetail.Age</td>
+
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>@Model.PersonalDetail.Gender</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>@Model.PersonalDetail.Address</td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td>@Model.PersonalDetail.State</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Nationality</td>
+                        <td class="highlight">@Model.PersonalDetail.Nationality</td>
+                        <td><input type="checkbox" /> <em style="color:red">*</em>Indian</td>
+
+                    </tr>
+                    <tr>
+                        <td>Mobile Number</td>
+                        <td>@Model.PersonalDetail.PhoneNumber</td>
+                    </tr>
+
+                    <tr>
+                        <td class="highlight">Annual Income</td>
+                        <td class="highlight">@Model.PersonalDetail.AnnualIncome</td>
+                        <td><input type="checkbox" /> <em style="color:red">*</em>less than 1lakh</td>
+
+                    </tr>
+                    <tr>
+                        <td class="highlight">SSLC Percentage</td>
+                        <td class="highlight">@Model.AcademicDetail.SSLCPercentage</td>
+                        <td><input type="checkbox" /> <em style="color:red">*</em>greater than 60%</td>
+
+                    </tr>
+                    <tr>
+                        <td class="highlight">HSC Percentage</td>
+                        <td class="highlight">@Model.AcademicDetail.HSCPercentage</td>
+                        <td><input type="checkbox" /> <em style="color:red">*</em>greater than 60%</td>
+
+                    </tr>
+                    <tr>
+                        <td>UG Percentage</td>
+                        <td>@Model.AcademicDetail.UGPercentage</td>
+                        <td><input type="checkbox" /> <em style="color:red">*</em>greater than 60%</td>
+
+                    </tr>
+                    <tr>
+                        <td>Academic Excellence</td>
+                        <td>@Model.AchievementDetail.AcademicExcellence</td>
+
+
+                    </tr>
+                    <tr>
+                        <td>Achievements</td>
+                        <td>@Model.AchievementDetail.Achievements</td>
+                    </tr>
+
+                    <tr>
+                        <td>Hobbies</td>
+                        <td>@Model.AchievementDetail.Hobbies</td>
+                    </tr>
+                    <tr>
+                        <td>Skills</td>
+                        <td>@Model.AchievementDetail.Skills</td>
+                    </tr>
+
+            </table>
+        </div>
+
+        <div class="jumbotron">
+            <h3 style="font-family:cursive">Submitted Proof</h3>
+            <p style="text-align:center"> @Model.AchievementDetail.Title</p>
+            <div class="text-center"> <img src=@Url.Content(Model.AchievementDetail.ImagePath) class="square" /></div>
+            @Html.ActionLink("Approve", "Approve", "Status", new
+            {
+                id = Model.DecisionStatus.UserID@*,imagepat = Model.OtherDetail.ImageFile.FileName*@}, htmlAttributes: new { @class = "btn btn-default btn-success" })
+            @Html.ActionLink("Reject", "Reject", "Status", new { id = Model.DecisionStatus.UserID }, htmlAttributes: new { id = "why", @class = "btn btn-default btn-danger" })
+
+        </div>
+    </div>
+</body>
+</html>

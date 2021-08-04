@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ProjectAlpha.Models.ViewModelAdminDashboard>
+
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="~/image/icons/admin.png" />
+    <link href="~/Content/lib/font-awesome/css/animations.css" rel="stylesheet" />
+    <link href="~/Content/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="~/Content/StyleSheet/AdminDashboard/Dashboard.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+</head>
+<body style="background-color:black">
+    @Html.Partial("~/Views/PartialViews/_INavBar.cshtml");
+
+    <div class="container" style="margin-top:55px;">
+        <div class="jumbotron">
+            <h1>Dashboard</h1>
+        </div>
+        <table class="table table-bordered table-dark table-hover table-striped admin">
+            <thead style="text-align:center">
+                <tr>
+                    <th>Student Name</th>
+                    <th>SSLC Percentage</th>
+                    <th>Annual Income</th>
+
+                </tr>
+            </thead>
+            <tbody class="delete">
+                @foreach (var student in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.ActionLink(student.FullName, "DisplayDetails", "Status", new { id = student.UserID }, null)
+                        </td>
+                        <td>
+                            @student.SSLCPercentage
+                        </td>
+                        <td>
+                            @student.AnnualIncome
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
+
+

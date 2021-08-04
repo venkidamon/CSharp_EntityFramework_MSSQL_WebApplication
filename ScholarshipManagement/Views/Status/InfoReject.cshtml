@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Application Status</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="~/image/icons/admin.png" />
+
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/animations.css" rel="stylesheet" />
+    <link href="~/lib/animations/css/animations.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet/InfoReject/IReject.css" rel="stylesheet" />
+</head>
+
+<body>
+    @Html.Partial("~/Views/PartialViews/_RNavBar.cshtml");
+
+    <div class="jumbotron">
+        <center>
+            @ViewBag.Message
+        </center>
+    </div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Application Status</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="~/Content/Image/Icons/admin.png" />
+    <link href="~/Content/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/Content/lib/font-awesome/css/animations.css" rel="stylesheet" />
+   <link href="~/Content/StyleSheet/Info/Info.css" rel="stylesheet" />
+</head>
+
+<body>
+    @Html.Partial("~/Views/PartialViews/_INavBar.cshtml");
+
+    <div class="jumbotron">
+        <center>
+            @ViewBag.Message
+        </center>
+    </div>
+</body>
+</html>
+
+
+
+

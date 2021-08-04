@@ -1,0 +1,118 @@
+﻿@model ProjectAlpha.Models.UserStudent
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" initial-scale="1" />
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="~/Content/Image/Icons/login.ico" />
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" />
+    <link href="~/Content/fonts/iconic/css/material-design-iconic-font.min.css" rel="stylesheet" />
+    <link href="~/Content/vendor/animate/animate.css" rel="stylesheet" />
+    <link href="~/Content/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" />
+    <link href="~/Content/vendor/animsition/css/animsition.min.css" rel="stylesheet" />
+    <link href="~/Content/vendor/select2/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet/Login/main.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet/Login/util.css" rel="stylesheet" />
+</head>
+<body style="background-color: #666666;">
+    <span>@ViewBag.Message</span>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form asp-controller="Home" asp-action="Login" method="post" class="login100-form validate-form">
+                    <span class="login100-form-title p-b-43">
+                        Login to continue
+                    </span>
+
+
+@*                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+
+                        @Html.TextBoxFor(u => u.Email, new { @class = "input100", name = "email" })
+                       
+                        <span>
+
+                            @Html.ValidationMessageFor(u => u.Email, "", new { @class = "text-danger" })
+                        </span>
+                       
+                    </div>*@
+                    <div class="wrap-input100">
+                        @Html.TextBoxFor(u => u.Email, new { @class = "input100", placeholder="Email"})
+                        @Html.ValidationMessageFor(u => u.Email, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="wrap-input100 " >
+
+                        @Html.PasswordFor(u => u.Password, new { @class = "input100",placeholder="Password" })
+                        @Html.ValidationMessageFor(u => u.Password, "", new { @class = "text-danger" })
+
+                       
+                    </div>
+
+                    <div class="flex-sb-m w-full p-t-3 p-b-32">
+
+
+                        <div>
+                            <a href="~/home/#contact" class="txt1">
+                                Forgot Password?
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+                    <br />
+                    <div class="container-login100-form-btn">
+
+                        <a href="~/home/SignUp" class="btn btn-lg login100-form-btn" style="background-color:rgb(32,178,170)">SignUp</a>
+
+                    </div>
+
+                    <div class="text-center p-t-46 p-b-20">
+                        <span class="txt2">
+                            or sign up using
+                        </span>
+                    </div>
+
+                    <div class="login100-form-social flex-c-m">
+                        <a href="~/facebook/facebook" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                            <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+
+                        @* <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>*@
+                    </div>
+                </form>
+
+                <div class="login100-more" style="background-image: url(../../Content/Image/AppImage/bg-01.jpg)">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="~/Content/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/vendor/animsition/js/animsition.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Content/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/vendor/countdowntime/countdowntime.js"></script>
+    @*<script src="~/Content/Scripts/login/main.js"></script>*@
+</body>
+</html>
+
