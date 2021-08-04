@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CarPool.Models.RideManagement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ride.Description)
+        </th>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.BookedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompletedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ride.Description)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.BookedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompletedDate)
+        </td>
+        <td>
+      
+            @Html.ActionLink("Delete", "Delete", new { id=item.RideManagementID })
+            @Html.ActionLink("Complete","MarkComplete", new { id = item.RideManagementID})
+        </td>
+    </tr>
+}
+
+</table>

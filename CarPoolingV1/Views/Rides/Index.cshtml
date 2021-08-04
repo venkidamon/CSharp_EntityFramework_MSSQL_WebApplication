@@ -1,0 +1,88 @@
+﻿@model IEnumerable<CarPool.Models.Ride>
+
+@{
+    ViewBag.Title = "Index";
+    if (Session["userIdentity"] != null)
+    {
+        Layout = "~/Views/Shared/_InLayout.cshtml";
+    }
+}
+
+<h2>Available Ride</h2>
+
+
+@using (Html.BeginForm("Index", "Rides", FormMethod.Post))
+{
+    @Html.TextBox("search")
+    <input type="submit" name="submit" value="search" placeholder="Rider Name" />
+}
+
+<div style="width: 100%; display: table; padding :10px;">
+    <div style="display: table-row">
+        <div style="width: 900px; display: table-cell;"> @Html.ActionLink("View Booked Ride", "Index", "RideManagements", null, new { @class = "btn btn-success" }) </div>
+        <div style="display: table-cell;"> @Html.ActionLink("View All Ride", "GetAllRides", "RideManagements", null, new { @class = "btn btn-success" }) </div>
+    </div>
+</div>
+
+<table class="table table-striped table-dark">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RideCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RiderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.RideDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatCount)
+        </th>
+
+
+
+        <th></th>
+    </tr>
+
+
+    @if (Model.Count() == 0)
+    {
+        <tr> <td colspan="3"> Currently No Ride Found </td></tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.RideCode, "Details", "Rides", new { id = item.RideCode }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RiderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.RideDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeatCount)
+                </td>
+
+
+
+
+            </tr>
+        }
+    }
+
+</table>

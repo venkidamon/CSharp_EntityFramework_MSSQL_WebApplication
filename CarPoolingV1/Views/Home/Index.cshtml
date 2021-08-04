@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    <style>
+        body {
+            background-image: url('../../Content/Images/IndexBackground.jpg');
+            margin: 0;
+            background-size:cover;
+        }
+        .zoom {
+            padding: 50px;
+           
+            transition: transform .2s; /* Animation */
+            
+            margin: 0 auto;
+        }
+
+            .zoom:hover {
+                
+                transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+            }
+            .jumbotron{
+                background: none;
+            }
+    </style>
+}
+
+<div class="jumbotron">
+    <h1>VRIDE</h1>
+    <p class="lead">RIDING TOGETHER IS AN EXPERIENCE...</p>
+    <p><a href="https://en.wikipedia.org/wiki/Carpool" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4 zoom">
+        <h3>Ride with Us</h3>
+        <p>
+            why us? we providing carpooling with safety and secure  Car sharing is a good way to use up the full seating capacity of a car, which would otherwise remain unused if it were just the driver using the car.
+        </p>
+
+    </div>
+    <div class="col-md-4 zoom">
+        <h3>Carpool, cut the fuel</h3>
+        <p>Wondering about Fuel price! we got covered you, less car less pollution Carpooling is also a more environmentally friendly and sustainable way to travel as sharing journeys reduces air pollution, carbon emissions</p>
+        <p>@Html.ActionLink("Book A Ride","Create","Users",null,new { @class = "btn btn-primary btn-lg" })</p>
+    </div>
+    <div class="col-md-4 zoom">
+        <h3>Be pocket-friendly with carpool</h3>
+        <p>save max by carpooling, carpooling reduces each person's travel costs such as: fuel costs, tolls, and the stress of driving</p>
+        <p>@Html.ActionLink("Share the Ride", "Create", "Riders",null, new { @class = "btn btn-primary btn-lg" })</p>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CarPool.Models.RideManagement>
+
+@{
+    ViewBag.Title = "RideDetails";
+    Layout = "~/Views/Shared/_InLayout.cshtml";
+}
+
+<h2>User Details</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ride.Description)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.BookedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ride.RideDate)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr> <td colspan="3"> No users booked the ride </td></tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ride.Description)
+                </td>
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ride.RideDate)
+                </td>
+             
+            </tr>
+        }
+    }
+
+    </table>
