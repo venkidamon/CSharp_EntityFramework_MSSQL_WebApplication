@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CarPool.Models.Ride>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        @Html.TextBox("search")
+        <input type="submit" name="submit" value="Search" />
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RideDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeatCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookedCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RideDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeatCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookedCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RideCode }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RideCode }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RideCode })
+                </td>
+            </tr>
+        }
+
+    </table>
